@@ -9,12 +9,14 @@
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                         <router-link to="/home/newlist">
 		                    <img src="../../img/menu1.png" alt="" class="imgli"> 
-		                    <div class="mui-media-body">自拍</div>
+		                    <div class="mui-media-body">新闻资讯</div>
                             </router-link>     
                    </li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/photolist">
 		                    <img src="../../img/menu2.png" alt="" class="imgli">
-		                    <div class="mui-media-body">亚洲</div></a></li>
+		                    <div class="mui-media-body">图片分享</div></router-link>
+                    </li>
+
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                   <img src="../../img/menu3.png" alt="" class="imgli">
 		                    <div class="mui-media-body">欧洲大汉</div></a></li>

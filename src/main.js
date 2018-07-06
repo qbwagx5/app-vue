@@ -9,26 +9,32 @@ import Mock from 'mockjs'
 import router from './router.js'
 //使用vueresource
 import VueResource from 'vue-resource'
-Vue.use(VueResource)
-//导入格式化时间插件
-// import moment from 'moment'
-//定义全局过滤器
-// Vue.filter('dateFromat',function(dataStr,pattern="YYYY-MM-DD HH:mm:ss"){
-//    return moment(dataStr).format(pattern)
-// })
+
+
+Vue.use(VueResource);
 Vue.use(VueRouter)
 //导入app根组件
 import app from './APP.vue'
 //按需导入Mint 的样式
-import {Header, Swipe, SwipeItem,Button} from 'mint-ui'
-Vue.component(Header.name, Header)
-//注册轮播图
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
-Vue.component(Button.name, Button)
+// import {Header, Swipe, SwipeItem,Button} from 'mint-ui'
+// Vue.component(Header.name, Header)
+// //注册轮播图
+// Vue.component(Swipe.name, Swipe)
+// Vue.component(SwipeItem.name, SwipeItem)
+// Vue.component(Button.name, Button)
+// //实现懒加载
+// import { Lazyload } from 'mint-ui';
+
+// Vue.use(Lazyload)
+import MinUI from 'mint-ui'
+Vue.use(MinUI)
+import 'mint-ui/lib/style.css'
 
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
+//安装图片预览插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 
 
 

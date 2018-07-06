@@ -32,6 +32,9 @@ import comment from '../subcomponent/comment.vue'
         },
         created(){
             this.getinfo()
+            // this.$http.get('../data/getnewslist.json').then((res)=>{
+            //     console.log(res);
+            // });
         },
         methods:{
             getinfo(){

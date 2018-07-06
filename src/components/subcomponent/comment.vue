@@ -18,46 +18,14 @@
                 </div>
             </div>
     </div>
-    <!-- <!-- <div class="cmt-list">
-        <div class="cmt-item">
-          <div class="cmt-title">
-           第一楼&nbsp;&nbsp;用户：孙悟空 &nbsp;&nbsp; 发表时间：2012-12-12 
-              </div>
-                <div class="cmt-body">
-
-                    暗示健康大空间很是的哈稍等哈市花时间可达啊可接受的哈市的客户处证明你下班擦
-                </div>
-            </div>
-    </div> -->
-    <!-- <div class="cmt-list">
-        <div class="cmt-item">
-          <div class="cmt-title">
-           第一楼&nbsp;&nbsp;用户：孙悟空 &nbsp;&nbsp; 发表时间：2012-12-12 
-              </div>
-                <div class="cmt-body">
-
-                    暗示健康大空间很是的哈稍等哈市花时间可达啊可接受的哈市的客户处证明你下班擦
-                </div>
-            </div> -->
-    <!-- </div>
-    <div class="cmt-list">
-        <div class="cmt-item">
-          <div class="cmt-title">
-           第一楼&nbsp;&nbsp;用户：孙悟空 &nbsp;&nbsp; 发表时间：2012-12-12 
-              </div>
-                <div class="cmt-body">
-
-                    暗示健康大空间很是的哈稍等哈市花时间可达啊可接受的哈市的客户处证明你下班擦
-                </div>
-            </div>
-    </div>  -->
-    <mt-button type="danger" size="large" plain>加载更多</mt-button>
+    
 
   
 </div>
     
 </template>
 <script>
+import {Toast} from 'mint-ui'
     
 export default{
     data(){
@@ -75,11 +43,24 @@ export default{
 			releasenewlist(){
                 console.log(  this.comment)
                 console.log( this.id)
-				  this.$http.post('http://www.ftusix.com/static/data/comment.php', JSON.stringify({ user_id: 183, topic_id:this.id, comment:this.comment }), { emulateJSON: true }).
+                if(this.comment.trim().length ===0){
+                    Toast("评论内容不能空")
+                    
+                    }else(
+				  this.$http.post('http://www.ftusix.com/static/data/comment.php', JSON.stringify({ user_id: 183, topic_id:this.id, comment:this.comment.trim()  }), { emulateJSON: true }).
                         then(data => {
-					// console.log(data)
-				
-				});
+                            if(data.status === 200){
+                                Toast("发表评论成功")
+                                var cmt={
+                                    nick_name:"默认",
+                                    date: Date.now(),
+                                    comment:this.comment.trim()
+                                    };
+                                    this.commentlist.unshift(cmt);
+                                    this.comment="";
+                            }
+                })
+                    )
 
             },
             getcommentList(){
@@ -98,6 +79,10 @@ export default{
 
 					)
 				});
+
+            },
+            postComment(){
+                //发表评论
 
             }
         },
