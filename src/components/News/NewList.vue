@@ -32,6 +32,7 @@
 		},
 		created(){
 			this.getnewlist()
+			this.get()
   
 		},
 		methods:{
@@ -55,9 +56,28 @@
 				// 		console.log(data)
 				// 	}
 				// })
+			},
+			 	get(){
+				  this.$http.post('/user',{ params: {id: 90}
+     }).then(res=>{
+					  console.log(res);
+				  })
+
+
+  }
+					
+			
+				// $ajax({
+				// 	url:'../../data/newlist.json',
+				// 	type:'get',
+				// 	dataType:'json',
+				// 	success:function(data){
+				// 		console.log(data)
+				// 	}
+				// })
 			}
 		}
-	}
+	
 </script>
 
 <style lang="scss" scoped>

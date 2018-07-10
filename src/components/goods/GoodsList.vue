@@ -2,8 +2,9 @@
 
 
 <div class="goods-list">
+  
    <div class="goods-item">
-
+     
     <img src="http://g.search3.alicdn.com/img/i3/122610140/TB2yN74BwmTBuNjy1XbXXaMrVXa_!!0-saturn_solar.jpg_220x220.jpg" alt="">
     <h1 class="title">中袖半袖柔美雪纺衫女2018新款大码女装夏装V领宽松洋气百搭上衣</h1>
     <div class="info">
@@ -15,7 +16,7 @@
         <span>热卖中</span>
         <span>剩60件</span>
       </p>
-     
+   
     </div>
     </div>
 
@@ -74,6 +75,29 @@
 </template>
 
 <script>
+export default{
+  	data(){
+			return{
+				
+			}
+		},
+  created(){
+    this.get()
+
+  },
+  methods:{
+    	get(){
+				  this.$http.post('/users').then(res=>{
+					  console.log(res);
+				  })
+
+
+  }
+
+
+
+}
+}
     
 </script>
   

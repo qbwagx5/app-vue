@@ -3,8 +3,9 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import './mock/mock.js'
 //引入mock.js
-import Mock from 'mockjs'
+// import Mock from "mockjs";
 //导入自己的路由模块
 import router from './router.js'
 //使用vueresource

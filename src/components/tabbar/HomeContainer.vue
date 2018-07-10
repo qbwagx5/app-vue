@@ -12,23 +12,29 @@
 		                    <div class="mui-media-body">新闻资讯</div>
                             </router-link>     
                    </li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/photolist">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                        <router-link to="/home/photolist">
 		                    <img src="../../img/menu2.png" alt="" class="imgli">
-		                    <div class="mui-media-body">图片分享</div></router-link>
+		                    <div class="mui-media-body">图片分享</div>
+                        </router-link>
                     </li>
 
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                        <router-link to="/home/goodslist">
+            
 		                   <img src="../../img/menu3.png" alt="" class="imgli">
-		                    <div class="mui-media-body">欧洲大汉</div></a></li>
+		                    <div class="mui-media-body">商品购买</div>
+                            </router-link>
+                    </li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                   <img src="../../img/menu4.png" alt="" class="imgli">
 		                    <div class="mui-media-body">动漫卡通</div></a></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                   <img src="../../img/menu5.png" alt="" class="imgli">
-		                    <div class="mui-media-body">VIP视频</div></a></li>
+		                    <div class="mui-media-body">VIP</div></a></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <img src="../../img/menu6.png" alt="" class="imgli">
-		                    <div class="mui-media-body">未亡人</div></a></li>
+		                    <div class="mui-media-body">火锅</div></a></li>
 		            <!-- <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <span class="mui-icon mui-icon-gear"></span>
 		                    <div class="mui-media-body">Setting</div></a></li>
@@ -40,9 +46,6 @@
 		                    <div class="mui-media-body">more</div></a></li> -->
 		        </ul> 
 
-
-
-        <h3>HomeContainer</h3>
     </div>
 </template>
 <script>
