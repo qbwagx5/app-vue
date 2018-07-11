@@ -1,10 +1,11 @@
 <template>
     <div>
-        <mt-swipe :auto="4000">
+        <!-- <mt-swipe :auto="4000">
         <mt-swipe-item v-for="item in lunbotutist" :key="item.url">
             <img :src="item.url" alt="">
          </mt-swipe-item>
-        </mt-swipe>
+        </mt-swipe> -->
+        <swipter :lunbotuList="lunbotulist" :isfull="true"></swipter>
          <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                         <router-link to="/home/newlist">
@@ -35,28 +36,20 @@
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <img src="../../img/menu6.png" alt="" class="imgli">
 		                    <div class="mui-media-body">火锅</div></a></li>
-		            <!-- <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-		                    <span class="mui-icon mui-icon-gear"></span>
-		                    <div class="mui-media-body">Setting</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-		                    <span class="mui-icon mui-icon-info"></span>
-		                    <div class="mui-media-body">about</div></a></li>
-		           <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-		                    <span class="mui-icon mui-icon-more"></span>
-		                    <div class="mui-media-body">more</div></a></li> -->
 		        </ul> 
 
     </div>
 </template>
 <script>
+import swipter from '../subcomponent/swipter.vue'
     export default{
         data(){
             return{
-                lunbotutist:[
+                lunbotulist:[
                     
-                    {url:'../src/img/2.jpg'},
-                    {url:"../src/img/11.jpg"},
-                    {url:"../src/img/3.jpg"},
+                    {img:'../src/img/2.jpg'},
+                    {img:"../src/img/11.jpg"},
+                    {img:"../src/img/3.jpg"}
                 ]
             }
         },
@@ -65,8 +58,11 @@
         },
         methods:{
             get(){
-                console.log(this.lunbotutist)
+                console.log(this.lunbotulist)
             }
+        },
+        components:{
+            swipter
         }
     }
 </script>
