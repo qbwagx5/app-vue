@@ -29,7 +29,7 @@ var router = new VueRouter({
     {path:'/home/goodslist', component:GoodsList },
     {path:'/home/goodsinfo/:id', component:GoodsInfo },
     {path:'/home/goodsdesc/:id', component:GoodsDesc},
-    {path:'/home/goodscomment/:id', component:GoodsComment}
+    {path:'/home/goodscomm  ent/:id', component:GoodsComment}
   ],
   linkActiveClass:'mui-active'//覆盖默认的路由高亮的类，默认的类叫做 router-link-active
 })

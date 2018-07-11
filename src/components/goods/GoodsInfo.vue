@@ -1,6 +1,13 @@
 <template>
     
 <div class="goodsinfo-container">
+
+
+	        <transition @before-enter="beforeEnter"
+            @enter="enter"
+            @after-enter="afterEnter">
+			 <div class="ball" v-show="ballFlag"></div>
+			</transition>
             <!-- 商品轮播图区域 -->
             <div class="mui-card">
 				<div class="mui-card-content">
@@ -23,7 +30,7 @@
 						</p>
 						<p>
 							<mt-button type="primary" size="small">立即购买</mt-button>
-							<mt-button type="danger" size="small">加入购物车</mt-button>
+							<mt-button type="danger" size="small" @click="addToShopCar">加入购物车</mt-button>
 							
 						</p>
 					</div>
@@ -53,14 +60,15 @@
 </template>
 <script>
 import swipter from '../subcomponent/swipter.vue'
-//导入我们的数字选择框组件
+//导入数字选择框组件
 import numbox from '../subcomponent/goodsinfo_numbox.vue'
 export default{
   	data(){
 			return{
                 lunbotulist:[],
 				id:this.$route.params.id,
-				shopinfo:[]
+				shopinfo:[],
+				ballFlag:false //控制小球显示和隐藏的标识符
 			}
 		},
   created(){
@@ -81,37 +89,47 @@ export default{
 				  })
 
 	  },
-	  
-	
- 
-  
         getshopinfo(){
             this.$http.post('/shopinfo',{ params:{id:this.id}}).then(res=>{
 				// console.log(res.data)
 				this.shopinfo=res.data
-				console.log(this.shopinfo)
-				
-
-				
+				console.log(this.shopinfo)			
 				  })
 
 		  },
 		  godesc(id){
 			 this.$router.push({path:"/home/goodsdesc/"+ id});
-
-
 		  },
 		  gocomment(id){
-			  this.$router.push({path:"/home/goodscomment/"+ id});
-			  
+			  this.$router.push({path:"/home/goodscomment/"+ id});			  
+		  },
+		  	addToShopCar(){
+				  this.ballFlag=!this.ballFlag;
+			
+		},
+		beforeEnter(el){
+			el.style.transform="translate(0,0)";
 
-		  }
-        },
+		},
+		enter(el,done){
+			 el.offsetWidth;
+			el.style.transform="translate(70px,212px)"
+			el.style.transition='all 0.5s cubic-bezier(.74,-0.29,1,.64)'
+			done()
+
+		}, 
+		afterEnter(el){
+			this.ballFlag=!this.ballFlag;
+
+		}
+
+
+		},
+	
+		
 	  components:{
 		  swipter,
 		  numbox
-
-
 	  }
     }
     
@@ -133,6 +151,7 @@ export default{
 	color: red;
 	font-size: 16px;
 	font-weight: bold;
+	
 
 }
 .mui-card-footer{
@@ -140,7 +159,20 @@ export default{
 	button{
 		margin: 15px 0;
 	}
+	
 }
+.ball{
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;
+		background-color : red;
+		position: absolute;
+		z-index: 99;
+		top: 407px;
+		left: 167px;
+		
+
+	}
 
 
 
