@@ -11,6 +11,50 @@ import router from './router.js'
 //使用vueresource
 import VueResource from 'vue-resource'
 
+//注册vuex
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
+var car =JSON.parse(localStorage.getItem('car')||'[]')
+ var store = new Vuex.Store({
+     state:{
+         car:car//购物车的数据
+           
+     },
+     mutations:{
+
+        
+         addToCar(state,goodsinfo) {
+            var flag= false
+
+             state.car.some(item=>{ 
+                 if(item.id == goodsinfo.id){
+                     item.count +=parseInt(goodsinfo.count)
+                     flag=true
+                     return true
+                     console.log(car)
+                 }
+                 
+             })
+             if(!flag){
+                state.car.push(goodsinfo)
+            } 
+            //当更新 car之后， 把car数组，存储到 本地的 localStoreage中
+            localStorage.setItem('car',JSON.stringify(state.car))
+
+         }
+     },
+     getters:{
+         getAllCount(state){
+             var c=0;
+             state.car.forEach(item=>{
+                 c +=item.count
+             })
+             return c
+         }
+     }
+ })
+
 
 Vue.use(VueResource);
 Vue.use(VueRouter)
@@ -43,6 +87,8 @@ Vue.use(VuePreview)
  var  vm =new Vue({
      el:'#app',
      render:c=>c(app),
-     router
+     router,
+     store //挂载store状态管理对象
+     
 
  })

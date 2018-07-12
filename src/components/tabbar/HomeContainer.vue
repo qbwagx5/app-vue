@@ -29,7 +29,7 @@
                     </li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                   <img src="../../img/menu4.png" alt="" class="imgli">
-		                    <div class="mui-media-body">动漫卡通</div></a></li>
+		                    <div class="mui-media-body">动漫</div></a></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                   <img src="../../img/menu5.png" alt="" class="imgli">
 		                    <div class="mui-media-body">VIP</div></a></li>

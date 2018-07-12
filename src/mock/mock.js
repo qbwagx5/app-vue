@@ -199,7 +199,7 @@ const productDatas = function () {
         "id": 88,
         "title": "短袖t恤男士速干套装韩版潮流夏季2018新款半袖体恤上衣男装夏装",
         "add_time": "2018-07-06 08:59",
-        "goods_no": "短袖t恤男士速干",
+        "goods_no": "SD3256325663",
         "sell_price": 108,
         "mark_price": 205,
         "stock_quantity": 200
@@ -209,7 +209,7 @@ const productDatas = function () {
         "id": 89,
         "title": "短袖t恤男士套装韩版潮流男装2018新款潮男休闲夏季一套衣服夏装",
         "add_time": "2018-07-06 08:59",
-        "goods_no": "短袖t恤男士套装韩版潮",
+        "goods_no": "SD3256325664",
         "sell_price": 89,
         "mark_price": 106,
         "stock_quantity": 60
@@ -219,7 +219,7 @@ const productDatas = function () {
         "id": 90,
         "title": " 花花公子贵宾短袖t恤男夏季韩版潮流纯棉纯色polo衫半袖男士体恤",
         "add_time": "2018-07-06 08:59",
-        "goods_no": "花花公子贵宾短袖t恤",
+        "goods_no": "SD3256325665",
         "sell_price": 165,
         "mark_price": 186,
         "stock_quantity": 80
@@ -229,7 +229,7 @@ const productDatas = function () {
         "id": 91,
         "title": "日版冠军have a nice day短袖rooster champion男女休闲情侣T恤夏",
         "add_time": "2018-07-06 08:59",
-        "goods_no": "日版冠军have a nice day短袖",
+        "goods_no": "SD3256325666",
         "sell_price": 114,
         "mark_price": 156,
         "stock_quantity": 90
@@ -239,13 +239,13 @@ const productDatas = function () {
         "id": 92,
         "title": "#OVDY 18SS 街头欧美潮牌t恤bf原宿风打底衫宽松半袖短袖男女tee",
         "add_time": "2018-07-06 08:59",
-        "goods_no": "#OVDY 18SS 街头欧美潮牌t恤bf",
+        "goods_no": "SD3256325667",
         "sell_price": 74,
         "mark_price": 106,
         "stock_quantity": 100
   
       }
-
+ 
     ]
     let rtype = options.type.toLowerCase();
     switch (rtype) {

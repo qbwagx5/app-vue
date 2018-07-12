@@ -1,11 +1,76 @@
 <template>
-    <div>
-        <h3>ShopContainer</h3>
+    <div class="shopcar-container">
+        <div class="goods-list">
+            <!-- 商品列表项区域 -->
+          <div class="mui-card">
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<mt-switch ></mt-switch>
+                        <img src="https://g-search1.alicdn.com/img/bao/uploaded/i4/i4/2759979267/TB2vdWsz25TBuNjSspmXXaDRVXa_!!2759979267.jpg_580x580Q90.jpg_.webp">
+                        <div class="info">
+                            <h1>xiaoasdkjasjk</h1>
+                            <p>
+                                <span class="price">￥2199</span>
+                                <numbox></numbox>
+                                <a href="#">删除</a>
+                            </p>
+                        </div>
+					</div>
+				</div>
+			</div>
+        </div>
+        <!-- 结算区域 -->
+        <div class="mui-card">
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						这是一个最简单的卡片视图控件；卡片视图常用来显示完整独立的一段信息，比如一篇文章的预览图、作者信息、点赞数量等
+					</div>
+				</div>
+			</div> 
     </div>
 </template>
-<script>
+<script> 
+import numbox from '../subcomponent/shopcar_numbox.vue'
+export default{
+    components:{
+        numbox
+    }
+}
     
 </script>
-<style lang="sass" scoped>
+<style lang="scss" scoped>
+.shopcar-container{
+    background-color: #eee;
+    overflow: hidden;
+    .goods-list{
+        .mui-card-content-inner{
+            display: flex;
+            align-items: center;
+        }
+        img{
+            width: 60px;
+            height: 60px;
+        }
+        h1{
+            font-size: 14px;
+        }
+        .info{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            .p{
+                margin: 0 10px;
+            }
+            .price{
+                color: red;
+                font-weight: bold;
+            }
+        }
+    }
+
+}
+
+
 
 </style>
