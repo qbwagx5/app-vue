@@ -3,14 +3,14 @@
         <div class="goods-list">
             <!-- 商品列表项区域 -->
           <div class="mui-card">
-				<div class="mui-card-content">
+				<div class="mui-card-content" v-for="item in shopcarlistinfo" :key="item.id">
 					<div class="mui-card-content-inner">
 						<mt-switch ></mt-switch>
-                        <img src="https://g-search1.alicdn.com/img/bao/uploaded/i4/i4/2759979267/TB2vdWsz25TBuNjSspmXXaDRVXa_!!2759979267.jpg_580x580Q90.jpg_.webp">
+                        <img :src="item.thumb_path">
                         <div class="info">
-                            <h1>xiaoasdkjasjk</h1>
+                            <h1>{{item.title}}</h1>
                             <p>
-                                <span class="price">￥2199</span>
+                                <span class="price">￥{{item.sell_price}}</span>
                                 <numbox></numbox>
                                 <a href="#">删除</a>
                             </p>
@@ -31,7 +31,38 @@
 </template>
 <script> 
 import numbox from '../subcomponent/shopcar_numbox.vue'
+import shopcar_numboxVue from '../subcomponent/shopcar_numbox.vue';
 export default{
+    data(){
+        return{
+            shopcarlistinfo:[]
+        };
+    },
+    created(){
+        this.shopcarlist()
+
+    },
+    methods:{
+         shopcarlist(){
+
+             var idarr=[];
+             this.$store.state.car.forEach(item =>idarr.push(item.id));
+            
+            //  if(idarr.length=0){
+            //      return false
+            //  }
+
+             console.log(idarr);
+             
+             this.$http.post('/shopcarlist',{ params:{id1:idarr[0],id2:idarr[1]}}).then((res)=>{
+                console.log(res);
+                this.shopcarlistinfo=res.data
+                console.log(this.shopcarlistinfo)
+                
+               
+             })
+         }
+    },
     components:{
         numbox
     }
@@ -39,38 +70,39 @@ export default{
     
 </script>
 <style lang="scss" scoped>
-.shopcar-container{
-    background-color: #eee;
-    overflow: hidden;
-    .goods-list{
-        .mui-card-content-inner{
-            display: flex;
-            align-items: center;
-        }
-        img{
-            width: 60px;
-            height: 60px;
-        }
-        h1{
-            font-size: 14px;
-        }
-        .info{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            
-            .p{
-                margin: 0 10px;
-            }
-            .price{
-                color: red;
-                font-weight: bold;
-            }
-        }
+.shopcar-container {
+  background-color: #eee;
+  overflow: hidden;
+  .goods-list {
+    .mui-card-content-inner {
+      display: flex;
+      align-items: center;
     }
-
+    img {
+      width: 60px;
+    }
+    h1 {
+      font-size: 13px;
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .price {
+        color: red;
+        font-weight: bold;
+      }
+    }
+  }
+  .jiesuan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .red {
+      color: red;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
 }
-
-
-
 </style>

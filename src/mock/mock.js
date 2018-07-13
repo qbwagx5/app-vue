@@ -264,6 +264,73 @@ const productDatas = function () {
     }
 
   }
+  const shopcarlist=(options) => {
+    var shopcarlist=[
+      {
+        "count":1,
+        "id": 87,
+        "title": "啄木鸟中年男士短袖t恤纯棉翻领港版大码丝光棉polo衫爸爸装夏装",
+        "sell_price": 195,
+        "thumb_path":"https://g-search1.alicdn.com/img/bao/uploaded/i4/i4/2759979267/TB2vdWsz25TBuNjSspmXXaDRVXa_!!2759979267.jpg_580x580Q90.jpg_.webp",
+      },
+      {
+        "count":1,
+        "id": 88,
+        "title": "短袖t恤男士速干套装韩版潮流夏季2018新款半袖体恤上衣男装夏装",
+        "sell_price": 108,
+        "thumb_path":"https://g-search2.alicdn.com/img/bao/uploaded/i4/i4/2614424501/TB2iauucnmWBKNjSZFBXXXxUFXa_!!2614424501.jpg_580x580Q90.jpg_.webp"
+      },
+      {
+        "count":1,
+        "id": 89,
+        "title": "短袖t恤男士套装韩版潮流男装2018新款潮男休闲夏季一套衣服夏装",
+        "sell_price": 89,
+        "thumb_path":"https://g-search1.alicdn.com/img/bao/uploaded/i4/i1/654262260/TB28tuNw79WBuNjSspeXXaz5VXa_!!654262260.jpg_580x580Q90.jpg_.webp"
+      },
+      {
+        "count":1,
+        "id": 90,
+        "title": "花花公子贵宾短袖t恤男夏季韩版潮流纯棉纯色polo衫半袖男士体恤",
+        "sell_price": 165,
+        "thumb_path":"https://g-search3.alicdn.com/img/bao/uploaded/i4/i3/2857903026/TB2MhxuthuTBuNkHFNRXXc9qpXa_!!2857903026.jpg_580x580Q90.jpg_.webp",
+      },
+      {
+        "count":1,
+        "id": 91,
+        "title": "日版冠军have a nice day短袖rooster champion男女休闲情侣T恤夏",
+        "sell_price": 114,
+        "thumb_path":"https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/2228488201/TB2x2Ghu_lYBeNjSszcXXbwhFXa_!!2228488201.jpg_580x580Q90.jpg_.webp"
+      },
+      {
+        "count":1,
+        "id": 92,
+        "title": "#OVDY 18SS 街头欧美潮牌t恤bf原宿风打底衫宽松半袖短袖男女tee",
+        "sell_price": 74,
+        "thumb_path":"https://g-search1.alicdn.com/img/bao/uploaded/i4/i1/2937502276/TB2ekkqi5MnBKNjSZFoXXbOSFXa_!!2937502276.jpg_580x580Q90.jpg_.webp"
+  
+      }
+ 
+    ]
+    let rtype = options.type.toLowerCase();
+    switch (rtype) {
+      case 'get':
+        break;
+      case 'post':
+        let id = parseInt(JSON.parse(options.body).params.id1)
+        let id2 =  parseInt(JSON.parse(options.body).params.id2)//获取传入的id参数
+        console.log(id,id2)
+        let b = shopcarlist.filter(a => {
+         
+         return a.id == id|| a.id == id2;
+         
+        })
+      
+        return b;
+        
+       
+    }
+
+  }
   
 
 
@@ -276,6 +343,7 @@ Mock.mock('/user', 'post', productData);
 Mock.mock('/users', 'post', productDatas);
 Mock.mock('/goodslunbo', 'post', lunbotu);
 Mock.mock('/shopinfo', 'post', shopinfo);
+Mock.mock('/shopcarlist', 'post', shopcarlist);
 
 // Mock.mock('/goodslist', 'post', goodsData );
 
